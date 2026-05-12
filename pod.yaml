@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: nginx-pod
+  namespace: mb
+
+  annotations:
+    name: "banglesshop"
+    url: "https://www.tanishq.co.in/"
+
+  labels:
+    name: "banglesapp"
+    env: dev
+
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "100m"
+
+        limits:
+          memory: "128Mi"
+          cpu: "200m"
+
+      envFrom:
+        - configMapRef:
+            name: nginx-config
+
+        - secretRef:
+            name: nginx-secret
+
+
+      
+       
+

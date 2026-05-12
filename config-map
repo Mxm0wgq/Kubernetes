@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: nginx-config
+  namespace: mb
+
+data:
+  APP_NAME: "banglesapp"
+  APP_MODE: "dev"
+
+   
+
